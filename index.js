@@ -9,7 +9,7 @@ require("./config/db.js");
 // const authRoutes =
 // const student = require("./routes/allUser.js");
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "http://localhost:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -26,5 +26,9 @@ createTables()
   });
 
 app.use("/api", require("./routes/userRoute.js"));
+
+app.get("/hello", (req, res) => {
+  res.send("Hello, Vercel!");
+});
 
 app.listen(8000, () => console.log(`node server use nodemon runing port`));
